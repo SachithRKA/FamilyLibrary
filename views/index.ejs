@@ -1,0 +1,51 @@
+<%- include('partials/header.ejs'); -%>
+
+<div id="titleSection" class="mainSection">
+    <h1>
+        <%= mainTitle %>
+    </h1>
+</div>
+
+<div id="contentSection" class="mainSection">
+    <div class="box">
+
+        <%for(let book of listBooks) { %>
+            <div class="book">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="deleteBooksId" value="<%= book.id %>">
+                </form>
+
+                <p id="title<%=book.id%>">
+                    <%= book.title %>
+                </p>
+
+                <form class="edit" action="/edit" method="post">
+                    <input type="hidden" name="updatedBookId" value="<%= book.id %>">
+                    <input id="input<%=book.id%>" type="text" name="updatedBookTitle" value="<%= book.title %>" autocomplete="off"
+                    autofocus="true" hidden="true" />
+
+                    <button id="done<%=book.id%>" class="edit" type="submit" hidden><img class="icon" 
+                        src="/assets/icons/check-solid.svg" alt="edit done"></button> 
+
+                    <button id="done<%=book.id%>" class="edit" onclick="handler('<%=book.id%>')"><img class="icon" 
+                        src="/assets/icons/pensil-solid.svg" alt="edit done"></button> 
+                </form>>
+            </div>
+        <% } %>
+
+        <form class="book" action="/add" method="post">
+            <input type="text" name="newBook" plceholder="Book Title" autocomplete="on" autofocus="true">
+            <button class="add" type="submit" name="list" value=<%=mainTitle %> >+</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function handler(id) {
+        document.getElementById("title" + id).setAttribute("hidden", true)
+        document.getElementById("edit" + id).setAttribute("hidden", true)
+        document.getElementById("done" + id).setAttribute("hidden")
+        document.getElementById("input" + id).setAttribute("hidden")
+    }
+</script>
+<%- include('partials/footer.ejs'); -%>
