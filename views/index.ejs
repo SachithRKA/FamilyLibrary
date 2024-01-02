@@ -1,15 +1,15 @@
 <%- include('partials/header.ejs'); -%>
 
-<form class="tab-view tab-view-height-auto" action="/user" method="post">
+<form class="members" action="/user" method="post">
     <% members.forEach(function(user) { %>
         <input type="submit" name="user" value="<%=user.id%>" id="<%=user.id %>">
-        <label for="<%= user.id %>" style="background-color: <%= user.color %>;">
+        <label class="family-name" for="<%= user.id %>" style="background-color: <%= user.color %>;">
             <%= user.name %>
         </label>
     <% }); %>
 
     <input type="submit" name="add" value="new" id="tab">
-    <label for="tab">Add Family Member</label>
+    <label class="new-Family" for="tab">Add Family Member</label>
 </form>
 
 <div id="titleSection" class="mainSection">

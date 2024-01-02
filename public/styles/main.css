@@ -1,6 +1,6 @@
 html {
     background-color: #e4e9fd;
-    background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+    background-image: #a683e3;
     min-height: 1000px;
     font-family: "helvetica neue";
   }
@@ -28,7 +28,7 @@ html {
   }
   
   #titleSection {
-    background-color: #a683e3;
+    background-color: #59976e;
     text-align: center;
   }
   form.edit {
@@ -68,7 +68,7 @@ html {
     width: 50px;
     border-radius: 50%;
     border-color: transparent;
-    background-color: #a683e3;
+    background-color: #59976e;
     color: #fff;
     font-size: 30px;
     border-width: 0;
@@ -98,7 +98,7 @@ html {
   
   input[type="text"]:focus {
     outline: none;
-    box-shadow: inset 0 -3px 0 0 #a683e3;
+    box-shadow: inset 0 -3px 0 0 #59976e;
   }
   
   ::placeholder {
@@ -111,3 +111,33 @@ html {
     color: white;
     text-align: center;
   }
+
+  .members {
+    display: flex-row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .members .new-Family {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .members .family-name {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  input[type="submit"] {
+    display: none;
+ }
+ 
+ .members .family-name:hover, .members .new-Family:hover {
+  opacity: 0.7;
+ }
